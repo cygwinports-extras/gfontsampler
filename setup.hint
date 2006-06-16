@@ -1,0 +1,4 @@
+category: Gnome Publishing
+requires: cygwin GConf2 gtk2-x11-runtime libglade2 libgnomeui2 xorg-x11-base
+sdesc: "GNOME font comparison tool"
+ldesc: "GNOME font comparison tool"

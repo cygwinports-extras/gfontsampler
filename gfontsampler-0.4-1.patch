@@ -1,0 +1,61 @@
+diff -urN -x .build -x .inst -x .sinst -x configure -x 'Makefile.in*' -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gfontsampler-0.4-orig/Makefile.am gfontsampler-0.4/Makefile.am
+--- gfontsampler-0.4-orig/Makefile.am	2005-01-20 21:52:45.000000000 -0600
++++ gfontsampler-0.4/Makefile.am	2006-01-04 14:27:28.984375000 -0600
+@@ -5,7 +5,7 @@
+ 
+ SUBDIRS = intl po macros include src pixmaps
+ 
+-gfontsamplerdocdir = ${prefix}/doc/gfontsampler
++gfontsamplerdocdir = $(datadir)/doc/gfontsampler-$(VERSION)
+ gfontsamplerdoc_DATA = \
+ 	README\
+ 	COPYING\
+diff -urN -x .build -x .inst -x .sinst -x configure -x 'Makefile.in*' -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gfontsampler-0.4-orig/configure.in gfontsampler-0.4/configure.in
+--- gfontsampler-0.4-orig/configure.in	2005-01-05 10:01:04.000000000 -0600
++++ gfontsampler-0.4/configure.in	2006-01-04 14:27:09.218750000 -0600
+@@ -14,7 +14,7 @@
+ AM_PROG_CC_STDC
+ AC_HEADER_STDC
+ AM_PROG_LIBTOOL
+-PKG_CHECK_MODULES(GNOME, libgnomeui-2.0 gtk+-2.0 libglade-2.0,,exit)
++PKG_CHECK_MODULES(GNOME, libgnomeui-2.0 gtk+-2.0 libglade-2.0)
+ AC_SUBST(GNOME_LIBS)
+ AC_SUBST(GNOME_CFLAGS)
+ dnl Checks for programs.
+@@ -65,7 +65,7 @@
+ 
+ dnl Set PACKAGE DATA & DOC DIR
+ packagedatadir=share
+-packagedocdir=doc/${PACKAGE}
++packagedocdir=share/doc/${PACKAGE}-${VERSION}
+ 
+ dnl Set PACKAGE DIRs in config.h.
+ packagepixmapsdir=share/pixmaps/${PACKAGE}
+diff -urN -x .build -x .inst -x .sinst -x configure -x 'Makefile.in*' -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gfontsampler-0.4-orig/include/Makefile.am gfontsampler-0.4/include/Makefile.am
+--- gfontsampler-0.4-orig/include/Makefile.am	2005-01-01 18:32:39.000000000 -0600
++++ gfontsampler-0.4/include/Makefile.am	2006-01-04 14:28:29.484375000 -0600
+@@ -4,11 +4,7 @@
+ ## If you don't want it to overwrite it,
+ ## 	Please disable it in the Anjuta project configuration
+ 
+-gfontsampler_includedir = $(pkgincludedir)
+-
+-gfontsampler_include_DATA = \
++noinst_HEADERS = \
+ 	gui.h\
+ 	main.h\
+ 	prefs.h
+-
+-EXTRA_DIST = $(gfontsampler_include_DATA)
+diff -urN -x .build -x .inst -x .sinst -x configure -x 'Makefile.in*' -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x 'intltool*' -x autom4te.cache -x '*compile' -x '*stamp' -x '*html' -x '*sgml' -x '*tmpl' -x '*txt' -x '*xml' gfontsampler-0.4-orig/src/Makefile.am gfontsampler-0.4/src/Makefile.am
+--- gfontsampler-0.4-orig/src/Makefile.am	2004-12-26 15:06:38.000000000 -0600
++++ gfontsampler-0.4/src/Makefile.am	2006-01-04 14:20:44.843750000 -0600
+@@ -18,7 +18,7 @@
+ 	prefs.c\
+ 	gui.c
+ 
+-gfontsampler_LDFLAGS = 
++gfontsampler_LDFLAGS = -Wl,--export-all-symbols
+ 
+ gfontsampler_LDADD =  \
+ 	$(GNOME_LIBS)

@@ -1,0 +1,71 @@
+gfontsampler
+------------------------------------------
+GNOME font comparison tool.
+
+Runtime requirements:
+  cygwin-1.5.18-1
+  GConf2-2.12.1-1
+  gtk2-x11-runtime-2.6.10-1
+  libglade2-2.5.1-1
+  libgnomeui2-2.12.0-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.18-1
+  autoconf2.5-2.59-3
+  automake1.9-1.9.6-1
+  binutils-20050610-1
+  gawk-3.1.5-1
+  gcc-core-3.4.4-1
+  make-3.80-1
+  pkgconfig-0.17.2-2
+  sed-4.1.4-1
+
+Canonical website:
+  http://linuxadvocate.org/projects/gfontsampler/
+
+Canonical download:
+  http://linuxadvocate.org/projects/gfontsampler/downloads/
+
+-------------------------------------------
+
+Build instructions:
+  unpack gfontsampler-0.4-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  ./gfontsampler-0.4-X.sh all
+
+This will create:
+  /usr/src/gfontsampler-0.4-X-src.tar.bz2
+  /usr/src/gfontsampler-0.4-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/bin/gfontsampler.exe
+  /usr/share/doc/Cygwin/gfontsampler-0.4.README
+  /usr/share/doc/gfontsampler-0.4/ABOUT-NLS
+  /usr/share/doc/gfontsampler-0.4/AUTHORS
+  /usr/share/doc/gfontsampler-0.4/ChangeLog
+  /usr/share/doc/gfontsampler-0.4/COPYING
+  /usr/share/doc/gfontsampler-0.4/INSTALL
+  /usr/share/doc/gfontsampler-0.4/NEWS
+  /usr/share/doc/gfontsampler-0.4/README
+  /usr/share/doc/gfontsampler-0.4/TODO
+  /usr/share/gfontsampler/glade/gfontsampler-icon.png
+  /usr/share/gfontsampler/glade/gfontsampler.glade
+  /usr/share/gnome/apps/Utilities/gfontsampler.desktop
+  /usr/share/pixmaps/gfontsampler/gfontsampler-icon.png
+
+------------------
+
+Port Notes:
+
+----- version 0.4-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
